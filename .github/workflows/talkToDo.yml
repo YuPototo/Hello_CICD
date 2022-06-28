@@ -1,0 +1,17 @@
+name: Talk to Digital Ocean
+
+on:
+  push
+
+
+jobs:
+  connect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Talk to Digital Ocean droplet via SSH action
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: whoami
