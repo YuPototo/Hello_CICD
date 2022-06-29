@@ -15,5 +15,9 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script: |
-            ls
-            mkdir lala
+            cd /home/qinyu/Hello_CICD
+            sudo kill -9 $(sudo lsof -t -i:3000)
+            yarn install
+            yarn start
+
+            
