@@ -16,9 +16,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           script: |
             cd /home/qinyu/Hello_CICD
-            sudo kill -9 $(sudo lsof -t -i:3000)
             git pull
             yarn install
-            yarn start
-
+            pm2 reload hello_cicd
             
